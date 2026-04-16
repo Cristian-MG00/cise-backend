@@ -1,0 +1,9 @@
+::ffff:127.0.0.1 POST /auth/login 200 198 - 246.365 ms
+::ffff:127.0.0.1 GET /products 200 1298 - 52.841 ms
+::ffff:127.0.0.1 POST /auth/login 200 198 - 237.458 ms
+::ffff:127.0.0.1 POST /auth/login 200 198 - 125.037 ms
+::ffff:127.0.0.1 POST /auth/login 200 198 - 121.132 ms
+::ffff:127.0.0.1 POST /auth/login 200 198 - 131.767 ms
+::ffff:127.0.0.1 POST /auth/login 200 198 - 112.368 ms
+::ffff:127.0.0.1 POST /auth/login 429 79 - 0.673 ms
+::ffff:127.0.0.1 POST /auth/login 429 79 - 0.597 ms

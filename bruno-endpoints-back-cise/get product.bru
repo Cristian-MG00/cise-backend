@@ -1,0 +1,20 @@
+meta {
+  name: get product
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:3001/products/69c9af19be24899ef5b89581
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Y2FhMGMxNGIxODg5MDFjZTZjNTVlOCIsImlhdCI6MTc3NjAxODEzMywiZXhwIjoxNzc2MDIxNzMzfQ.O1XtySA7L3KPhK6bT6unjR2QZAuilW_gJCLmdmLY7CE
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

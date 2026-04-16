@@ -1,0 +1,26 @@
+meta {
+  name: update product
+  type: http
+  seq: 4
+}
+
+patch {
+  url: http://localhost:3001/products/69cae31efa755cb633de9ecc
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Y2FhMGMxNGIxODg5MDFjZTZjNTVlOCIsImlhdCI6MTc3NDkwMzk0NSwiZXhwIjoxNzc0OTA3NTQ1fQ.Ixr3U7oIDCu8JL358Q3ByPNJAZwTfkqUP8RHUfAFP0k
+}
+
+body:json {
+  {
+      "stock":  16
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

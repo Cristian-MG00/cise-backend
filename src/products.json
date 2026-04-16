@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "name": "Gaseosa Cola 2L",
+    "price": 2500,
+    "category": "Bebidas",
+    "stock": 30
+  },
+  {
+    "id": 2,
+    "name": "Agua Mineral 1.5L",
+    "price": 1200,
+    "category": "Bebidas",
+    "stock": 50
+  },
+  {
+    "id": 3,
+    "name": "Leche Entera 1L",
+    "price": 1500,
+    "category": "Lacteos",
+    "stock": 40
+  },
+  {
+    "id": 4,
+    "name": "Harina de Trigo 1kg",
+    "price": 900,
+    "category": "Almacen",
+    "stock": 60
+  },
+  {
+    "id": 5,
+    "name": "Galletas Dulces",
+    "price": 1100,
+    "category": "Almacen",
+    "stock": 35
+  },
+  {
+    "id": 6,
+    "name": "Arroz Largo Fino 1kg",
+    "price": 1300,
+    "category": "Almacen",
+    "stock": 45
+  },
+  {
+    "id": 7,
+    "name": "Fideos Spaghetti 500g",
+    "price": 1000,
+    "category": "Almacen",
+    "stock": 55
+  },
+  {
+    "id": 8,
+    "name": "Jabón de Tocador",
+    "price": 800,
+    "category": "Higiene",
+    "stock": 25
+  },
+  {
+    "id": 9,
+    "name": "Shampoo 400ml",
+    "price": 3200,
+    "category": "Higiene",
+    "stock": 20
+  },
+  {
+    "id": 10,
+    "name": "Detergente para Platos",
+    "price": 2100,
+    "category": "Limpieza",
+    "stock": 28
+  },
+  {
+    "id": 11,
+    "name": "Oreo 118gr",
+    "price": 1800,
+    "category": "Galletas",
+    "stock": 38
+  },
+  {
+    "id": 12,
+    "name": "Pepitos 118gr",
+    "price": 1700,
+    "category": "Galletas",
+    "stock": 8
+  },
+  {
+    "id": 13,
+    "name": "Celosas 350gr",
+    "price": 1800,
+    "category": "Galletas",
+    "stock": 12
+  },
+  {
+    "id": 14,
+    "name": "Vasos descartables",
+    "price": 80,
+    "category": "Bazar",
+    "stock": 12000
+  }
+]

@@ -1,0 +1,2 @@
+::1 POST /auth/login 200 198 - 233.985 ms
+::1 GET /products 200 1298 - 36.085 ms

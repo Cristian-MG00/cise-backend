@@ -1,0 +1,20 @@
+meta {
+  name: delete product
+  type: http
+  seq: 3
+}
+
+delete {
+  url: http://localhost:3001/products/69ced56dc6655388a85c59d5
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Y2FhMGMxNGIxODg5MDFjZTZjNTVlOCIsImlhdCI6MTc3NTE3MjQzMiwiZXhwIjoxNzc1MTc2MDMyfQ.0QZIeNQxjrRFdhyiNayry6EEq8JbLWxlM-qI89jffYw
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

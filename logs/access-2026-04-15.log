@@ -1,0 +1,9 @@
+::1 POST /auth/login 401 45 - 124.094 ms
+::1 POST /auth/login 401 45 - 44.241 ms
+::1 POST /auth/register 201 158 - 350.862 ms
+::1 POST /auth/login 200 198 - 222.175 ms
+::1 GET /products 200 26 - 53.178 ms
+::1 POST /products 201 129 - 94.246 ms
+::1 GET /products 200 131 - 46.396 ms
+::1 POST /products 201 120 - 97.248 ms
+::1 GET /products 200 228 - 42.567 ms

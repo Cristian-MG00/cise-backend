@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import { connectDB } from "./config/mongodb";
 import { productRouter } from "./routes/productRoutes";
-import { authMiddleware } from "./middleware/authMiddleware";
+// import { authMiddleware } from "./middleware/authMiddleware";
 import { authRouter } from "./routes/userRoutes";
 import morgan from "morgan";
 import logger from "./config/logger";
@@ -36,7 +36,7 @@ app.use(morgan("dev"));
 app.use(logger);
 
 app.use("/auth", limiter, authRouter);
-app.use("/products", authMiddleware, productRouter);
+app.use("/products", productRouter);
 
 app.get("/", (req: Request, res: Response): void => {
   res.json({ status: true });

@@ -1,0 +1,6 @@
+::1 POST /auth/login 200 198 - 188.982 ms
+::1 POST /products 400 272 - 82.861 ms
+::1 POST /products 400 108 - 44.288 ms
+::1 POST /products 400 86 - 66.004 ms
+::1 POST /products 201 118 - 115.978 ms
+::1 POST /products 400 58 - 9.759 ms

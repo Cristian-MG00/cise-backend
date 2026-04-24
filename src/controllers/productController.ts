@@ -1,6 +1,10 @@
 import { Request, Response } from "express";
 import { Product } from "../model/ProductModel";
 import { Types } from "mongoose";
+import {
+  addProductValidator,
+  updateProductValidator,
+} from "../validators/productValidator";
 
 class ProductController {
   static getProducts = async (
@@ -61,15 +65,32 @@ class ProductController {
           .json({ success: false, error: "El producto ya esta en la lista" });
       }
 
-      const newProduct = new Product({
+      const validator = addProductValidator.safeParse({
         name,
         price,
         category,
         stock,
       });
 
-      await newProduct.save();
+      if (!validator.success) {
+        return res.status(400).json({
+          success: false,
+          error: validator.error.issues.map((e) => {
+            return {
+              propiedad: e.path[0],
+              mensaje: e.message,
+            };
+          }),
+        });
+      }
 
+      const newProduct = new Product({
+        name,
+        price,
+        category,
+        stock,
+      });
+      await newProduct.save();
       res.status(201).json({ success: true, data: newProduct });
     } catch (error) {
       const e = error as Error;
@@ -87,7 +108,20 @@ class ProductController {
         return res.status(400).json({ success: false, error: "Id inválido" });
       }
       const body = req.body;
-      // const { name, price, category, stock } = req.body;
+
+      const validator = updateProductValidator.safeParse(body);
+
+      if (!validator.success) {
+        return res.status(400).json({
+          success: false,
+          error: validator.error.issues.map((e) => {
+            return {
+              propiedad: e.path[0],
+              mensaje: e.message,
+            };
+          }),
+        });
+      }
 
       const updatedProduct = await Product.findByIdAndUpdate(id, body, {
         new: true,

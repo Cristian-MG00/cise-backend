@@ -1,0 +1,6 @@
+::1 GET / 200 15 - 5.433 ms
+::1 GET /favicon.ico 404 48 - 1.085 ms
+::1 GET / 200 15 - 7.150 ms
+::1 GET /favicon.ico 404 48 - 0.916 ms
+::1 GET /products 200 837 - 272.353 ms
+::1 GET /products 200 837 - 1268.215 ms

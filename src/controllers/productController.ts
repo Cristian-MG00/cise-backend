@@ -5,6 +5,7 @@ import {
   addProductValidator,
   updateProductValidator,
 } from "../validators/productValidator";
+import { number } from "zod";
 
 class ProductController {
   static getProducts = async (
@@ -12,7 +13,33 @@ class ProductController {
     res: Response,
   ): Promise<void | Response> => {
     try {
-      const products = await Product.find({});
+      const { name, minPrice, maxPrice, stock, category } = req.query;
+
+      // aca creo un objeto personalizado con propiedades para filtrar productos. En dichas propiedades doy de valor el parametro correspondiente que venga en req.query. Creo la propiedad name, pero puedo crear tambien mas propiedades com price, stock, categoria, etc.
+      interface Filter {
+        name?: RegExp;
+        price?: {
+          $gte?: number;
+          $lte?: number;
+        };
+        stock?: number;
+        category?: RegExp;
+      }
+
+      const filter: Filter = {};
+      // las querys pueden ser varios tipos de datos, por eso debo aegurarme que es string
+      if (name) filter.name = new RegExp(String(name), "i"); //convierto a RegExp para mongoose, sigue siendo un tipo de string
+      if (minPrice || maxPrice) {
+        filter.price = {};
+        if (minPrice) filter.price.$gte = Number(minPrice);
+        if (maxPrice) filter.price.$lte = Number(maxPrice);
+      }
+      if (stock) filter.stock = Number(stock);
+      if (category) filter.category = new RegExp(String(category), "i");
+
+      console.log("filter->", filter);
+
+      const products = await Product.find(filter);
       res.json({ success: true, data: products });
     } catch (error) {
       const e = error as Error;

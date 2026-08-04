@@ -1,0 +1,10 @@
+::1 POST /auth/login 200 234 - 304.332 ms
+::1 POST /products 401 45 - 38.329 ms
+::1 POST /products 201 202 - 304.116 ms
+::1 GET /uploads//1785788268172-e672ddbe-d341-4b24-a661-5e0fa1266077.jpg 200 16209 - 37.431 ms
+::1 GET /favicon.ico 404 48 - 1.474 ms
+::1 POST /products 400 59 - 88.551 ms
+::1 POST /products 201 201 - 128.602 ms
+::1 GET /uploads//1785789388386-e72db4f1-4d9e-487a-a441-b5d9918ef06a.webp 200 19050 - 9.714 ms
+::1 POST /products 201 195 - 381.374 ms
+::1 GET /uploads//1785789538236-3d2f9c76-b63d-4f60-8b13-ec29f4fd1b07.jpg 200 253486 - 18.361 ms

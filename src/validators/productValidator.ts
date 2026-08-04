@@ -13,6 +13,7 @@ const productSchemaValidator = z.object({
   stock: z
     .number("Debes ingresar un número")
     .positive("El stock no puede ser menor a 0"),
+  image: z.string().default("No contiene imagen"),
 });
 
 const addProductValidator = productSchemaValidator;

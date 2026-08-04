@@ -8,6 +8,7 @@ const productSchema = new Schema<IProduct>(
     price: { type: Number, required: true },
     category: { type: String, required: true, min: 0 },
     stock: { type: Number, required: true, min: 0 },
+    image: { type: String },
   },
   {
     versionKey: false,

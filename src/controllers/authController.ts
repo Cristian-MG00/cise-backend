@@ -32,6 +32,16 @@ class AuthController {
         email,
         password: hash,
       });
+
+      console.log(newUser);
+
+      const newUserToFront = {
+        email: newUser.email,
+        id: newUser._id,
+      };
+
+      console.log(newUserToFront);
+
       await newUser.save();
       res.status(201).json({ success: true, data: newUser });
     } catch (error) {
@@ -63,9 +73,7 @@ class AuthController {
       const SECRET_KEY = env().SECRET_KEY as string;
       const isValid = await bcrypt.compare(password, user.password);
       if (!isValid) {
-        return res
-          .status(401)
-          .json({ success: false, error: "Datos incorrectos" });
+        return res.status(401).json({ success: false, error: "No autorizado" });
       }
       // ✅ Permiso especial - sesion de uso -> token
       // jsonwebtoken -> jwt
@@ -74,7 +82,7 @@ class AuthController {
       // - payload -> informacion publica que quiero compartir del usuario logueado
       // - clave secreta -> firma que valida al token
       // - opciones -> cuando expira
-      const token = jwt.sign({ id: user._id }, SECRET_KEY, {
+      const token = jwt.sign({ id: user._id, email: user.email }, SECRET_KEY, {
         expiresIn: "1h",
       });
       res.json({ success: true, token });

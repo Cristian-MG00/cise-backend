@@ -5,13 +5,13 @@ meta {
 }
 
 post {
-  url: https://cise-backend.onrender.com/products
-  body: json
+  url: http://localhost:3001/products
+  body: multipartForm
   auth: bearer
 }
 
 auth:bearer {
-  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTE2OGJiOTJjNDg2ZjFlMmQxYjhkYiIsImlhdCI6MTc3Njk4ODg4MCwiZXhwIjoxNzc2OTkyNDgwfQ.sRTYtKQfjnJG6SMPxxuRU0b43KxuwyP5ian2rUIS8Iw
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNTgxMzk0NmNlZTI5MTk4MTQ5ZTdiYSIsImVtYWlsIjoianVhbjEwQGdtYWlsLmNvbSIsImlhdCI6MTc4NTc4NzU2MCwiZXhwIjoxNzg1NzkxMTYwfQ.WJV4WeU8UpPnzyqIhNWiZuRYKLbI9JkKqFhvdcR2oa8
 }
 
 body:json {
@@ -21,6 +21,14 @@ body:json {
       "category": "Jugos",
       "stock": "hola"
     }
+}
+
+body:multipart-form {
+  name: skip 3lt
+  stock: 3
+  category: limpieza
+  price: 9800
+  image: @file(C:\Users\Crist\Downloads\jacon-liquido-packshot.jpg) @contentType(image/jpeg)
 }
 
 settings {

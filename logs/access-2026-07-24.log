@@ -1,0 +1,8 @@
+::1 GET /products? 304 - - 1223.959 ms
+::1 GET /products? 304 - - 122.510 ms
+::1 GET /email/send 404 48 - 7.963 ms
+::1 GET /email/send 404 48 - 0.266 ms
+::1 GET /email/send 404 48 - 0.394 ms
+::1 GET /email/send 404 48 - 5.849 ms
+::1 GET /email/send 404 48 - 1.808 ms
+::1 POST /email/send 400 57 - 2.918 ms

@@ -76,7 +76,10 @@ class ProductController {
     res: Response,
   ): Promise<Response | void> => {
     try {
-      const { name, price, category, stock } = req.body;
+      const { body, file } = req;
+      console.log(file);
+
+      const { name, price, category, stock } = body;
 
       if (!name || !price || !category || stock === undefined) {
         return res
@@ -92,12 +95,17 @@ class ProductController {
           .json({ success: false, error: "El producto ya esta en la lista" });
       }
 
-      const validator = addProductValidator.safeParse({
+      const dataToValidate = {
         name,
-        price,
         category,
-        stock,
-      });
+        stock: +stock,
+        price: +price,
+        image: file?.path,
+      };
+
+      console.log(dataToValidate);
+
+      const validator = addProductValidator.safeParse(dataToValidate);
 
       if (!validator.success) {
         return res.status(400).json({
@@ -111,12 +119,7 @@ class ProductController {
         });
       }
 
-      const newProduct = new Product({
-        name,
-        price,
-        category,
-        stock,
-      });
+      const newProduct = new Product(validator.data);
       await newProduct.save();
       res.status(201).json({ success: true, data: newProduct });
     } catch (error) {

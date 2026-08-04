@@ -1,14 +1,16 @@
-import express, { Request, Response } from "express";
+import express, { Request, Response, request } from "express";
 import cors from "cors";
 import { connectDB } from "./config/mongodb";
 import { productRouter } from "./routes/productRoutes";
-// import { authMiddleware } from "./middleware/authMiddleware";
 import { authRouter } from "./routes/userRoutes";
 import morgan from "morgan";
 import logger from "./config/logger";
 import { limiter } from "./middleware/rateLimitMiddleware";
 import { IUserPayload } from "./interfaces/IUserPayload";
 import { env } from "./config/env";
+// le aviso a mi servidor que va a servir tambien archivos estaticos
+import path from "node:path";
+import { emailService } from "./services/emailService";
 
 // carga el archivo de las variables de entorno, pero solo funciona para desarrollo
 // process.loadEnvFile();
@@ -35,8 +37,13 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use(logger);
 
-app.use("/auth", limiter, authRouter);
+app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
+
+app.use("/auth", authRouter);
 app.use("/products", productRouter);
+
+// enviar correo electronico
+app.post("/email/send", emailService);
 
 app.get("/", (req: Request, res: Response): void => {
   res.json({ status: true });

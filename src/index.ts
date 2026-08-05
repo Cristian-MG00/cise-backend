@@ -11,6 +11,7 @@ import { env } from "./config/env";
 // le aviso a mi servidor que va a servir tambien archivos estaticos
 import path from "node:path";
 import { emailService } from "./services/emailService";
+import fs from "node:fs";
 
 // carga el archivo de las variables de entorno, pero solo funciona para desarrollo
 // process.loadEnvFile();
@@ -36,6 +37,12 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(logger);
+
+const uploadsPath = path.join(__dirname, "../uploads");
+
+if (!fs.existsSync(uploadsPath)) {
+  fs.mkdirSync(uploadsPath, { recursive: true });
+}
 
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
